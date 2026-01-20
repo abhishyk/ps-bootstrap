@@ -9,10 +9,10 @@ Write-Host @"
 ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
 
 
- Version v1.0
+      Version v1.0
 "@ -ForegroundColor Red
 
-Write-Host "Authorized use only @Copyright- Abhishek Kumar" -ForegroundColor Cyan
+Write-Host "Authorized use only @Copyright-Abhishek Kumar" -ForegroundColor Cyan
 Write-Host ""
 
 $psv = (Get-Host).Version.Major
