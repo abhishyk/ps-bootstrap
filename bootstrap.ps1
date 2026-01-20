@@ -1,4 +1,5 @@
 Clear-Host
+Write-Host "`n`n`n"
 Write-Host @"
  █████╗ ██████╗ ██╗  ██╗██╗███████╗██╗  ██╗███████╗██╗  ██╗
 ██╔══██╗██╔══██╗██║  ██║██║██╔════╝██║  ██║██╔════╝██║ ██╔╝
@@ -7,10 +8,11 @@ Write-Host @"
 ██║  ██║██████╔╝██║  ██║██║███████║██║  ██║███████╗██║  ██╗
 ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
 
-        Secure Bootstrap Utility v1.0
-"@ -ForegroundColor Cyan
 
-Write-Host "Authorized use only @Copyright- Abhishek Kumar" -ForegroundColor DarkGray
+ Version v1.0
+"@ -ForegroundColor Red
+
+Write-Host "Authorized use only @Copyright- Abhishek Kumar" -ForegroundColor Cyan
 Write-Host ""
 
 $psv = (Get-Host).Version.Major
@@ -82,8 +84,6 @@ if (-not (Test-Path $cmdPath)) {
     Write-Host "CMD file not created." -ForegroundColor Red
     exit 1
 }
-
-Write-Host "CMD file saved to $cmdPath"
 
 # Run CMD as Administrator
 $cmdExe = "$env:SystemRoot\System32\cmd.exe"
