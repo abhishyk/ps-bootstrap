@@ -1,4 +1,18 @@
 Clear-Host
+Write-Host @"
+ █████╗ ██████╗ ██╗  ██╗██╗███████╗██╗  ██╗███████╗██╗  ██╗
+██╔══██╗██╔══██╗██║  ██║██║██╔════╝██║  ██║██╔════╝██║ ██╔╝
+███████║██████╔╝███████║██║███████╗███████║█████╗  █████╔╝ 
+██╔══██║██╔══██╗██╔══██║██║╚════██║██╔══██║██╔══╝  ██╔═██╗ 
+██║  ██║██████╔╝██║  ██║██║███████║██║  ██║███████╗██║  ██╗
+╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
+
+        Secure Bootstrap Utility v1.0
+"@ -ForegroundColor Cyan
+
+Write-Host "Authorized use only @Copyright- Abhishek Kumar" -ForegroundColor DarkGray
+Write-Host ""
+
 $psv = (Get-Host).Version.Major
 
 Write-Host "Starting system checks..." -ForegroundColor Cyan
