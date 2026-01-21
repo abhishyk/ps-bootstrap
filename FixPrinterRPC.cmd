@@ -9,5 +9,7 @@ echo Restarting Print Spooler service...
 net stop spooler
 net start spooler
 
-echo Done! Printer RPC Privacy Issue should be fixed.
+echo Done! Printer RPC Privacy Issue should be fixed. 
+echo Browse:- HKEY_LOCAL_MACHINE/System/CurrentControlSet/Control/Print
+echo Add DWORD(32-bit) Value RpcAuthnLevelPrivacyEnabled
 pause
