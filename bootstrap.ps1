@@ -1,5 +1,4 @@
 Clear-Host
-Write-Host "`n`n`n"
 Write-Host @"
  █████╗ ██████╗ ██╗  ██╗██╗███████╗██╗  ██╗███████╗██╗  ██╗
 ██╔══██╗██╔══██╗██║  ██║██║██╔════╝██║  ██║██╔════╝██║ ██╔╝
@@ -9,10 +8,7 @@ Write-Host @"
 ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
       Version v1.0 | Enhanced UI
 "@ -ForegroundColor Red
-
-Write-Host "Authorized use only @Copyright-Abhishek Kumar" -ForegroundColor Cyan
-Write-Host ""
-
+Write-Host "Authorized use only,@Copyright-Abhishek Kumar" -ForegroundColor Cyan
 # ---------------- HELPER: ANIMATION ----------------
 function Show-VisualLoad {
     param([string]$Message)
@@ -27,7 +23,8 @@ function Show-VisualLoad {
 }
 
 # ---------------- SYSTEM CHECKS ----------------
-Write-Host "Starting system checks..." -ForegroundColor Cyan
+Write-Host "=====================================================" -ForegroundColor Cyan
+Write-Host ""
 if ($ExecutionContext.SessionState.LanguageMode -ne "FullLanguage") { exit 1 }
 try { [void][System.Math]::Sqrt(144) } catch { exit 1 }
 
@@ -88,8 +85,7 @@ function DownloadAndRun {
 
 # ---------------- MAIN MENU LOOP ----------------
 while ($true) {
-    Write-Host "`nEnter selections (e.g. 2,5,6) or '0' to exit:" -ForegroundColor Yellow
-
+      Write-Host "Ready to proceed. Input your choices below:`n" -ForegroundColor Yellow
     $menu = @(
         "0. Exit", "1. Open CMD", "2. Run Runner", "3. Fix Printer RPC(0x0000011b)",
         "4. Script 2", "5. Script 3", "6. Script 4", "7. Script 5",
@@ -104,7 +100,8 @@ while ($true) {
         Write-Host $line -ForegroundColor White
     }
 
-    $inputChoice = Read-Host "`nChoice(s)"
+   Write-Host "`nChoice(s):- " -ForegroundColor Yellow -NoNewline
+$inputChoice = Read-Host
     if ($inputChoice -eq "0") { exit }
 
     $choices = $inputChoice.Split(',').Trim()
