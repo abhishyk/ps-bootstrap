@@ -42,7 +42,7 @@ $cmdExe = "$env:SystemRoot\System32\cmd.exe"
 $urls = @{
     "2"  = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/main/runner.cmd"
     "3"  = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/refs/heads/main/FixPrinterRPC.cmd"
-    "4"  = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/main/script2.cmd"
+    "4"  = "https://raw.githubusercontent.com/massgravel/Microsoft-Activation-Scripts/da0b2800d9c783e63af33a6178267ac2201adb2a/MAS/All-In-One-Version-KL/MAS_AIO.cmd"
     "5"  = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/main/script3.cmd"
     "6"  = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/main/script4.cmd"
     "7"  = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/main/script5.cmd"
@@ -88,7 +88,7 @@ while ($true) {
       Write-Host "Ready to proceed. Input your choices below:`n" -ForegroundColor Yellow
     $menu = @(
         "0. Exit", "1. Open CMD", "2. Run Runner", "3. Fix Printer RPC(0x0000011b)",
-        "4. Script 2", "5. Script 3", "6. Script 4", "7. Script 5",
+        "4. WinActivetor", "5. Script 3", "6. Script 4", "7. Script 5",
         "8. Script 6", "9. Script 7", "10. Script 8"
     )
 
