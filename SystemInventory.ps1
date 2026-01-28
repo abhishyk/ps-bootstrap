@@ -117,3 +117,4 @@ Write-Host "==== UNIVERSAL SYSTEM INVENTORY ====" -ForegroundColor Green
     "Voltage (mV)"         = $voltage
     "Discharge Rate (mW)"  = $discharge
 } | Format-List
+Read-Host -Prompt "`nScan Complete. Press Enter to return to Menu"
