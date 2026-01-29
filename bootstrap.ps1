@@ -45,38 +45,34 @@ function DownloadAndRun {
     $tempPath = "$env:TEMP\App_$guid$ext"
 
     Write-Host "`n[*] Starting Task: $label" -ForegroundColor Yellow
-    Write-Host "[*] Downloading..." -ForegroundColor Magenta -NoNewline
+    Write-Host "[*] Downloading... (Please wait, this may take a moment)" -ForegroundColor Magenta
     
     try { 
-        # Using Invoke-WebRequest instead of WebClient for better redirect handling
-        Invoke-WebRequest -Uri $url -OutFile $tempPath -ErrorAction Stop
-        Write-Host " [DONE]" -ForegroundColor Green
+        # Silencing progress for this specific command to boost speed
+        Invoke-WebRequest -Uri $url -OutFile $tempPath -ErrorAction Stop -UseBasicParsing
+        Write-Host "[*] Download Complete." -ForegroundColor Green
     } catch {
-        Write-Host " [FAILED]" -ForegroundColor Red
-        Write-Error $_.Exception.Message
+        Write-Host "[!] Download FAILED: Check your internet connection." -ForegroundColor Red
         return
     }
 
     if (Test-Path $tempPath) {
         Write-Host "[*] Launching Application..." -ForegroundColor Cyan
-        Write-Host ">>> KEEP THIS WINDOW OPEN UNTIL FINISHED <<<" -ForegroundColor Black -BackgroundColor Yellow
         
-        Start-Sleep -Milliseconds 500
-
+        # Using Start-Process with -Wait ensures the script cleans up ONLY after you close the EXE
         if ($ext -eq ".ps1") {
-            Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -NoExit -File `"$tempPath`"" -Verb RunAs -Wait
+            Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$tempPath`"" -Verb RunAs -Wait
         } 
         elseif ($ext -eq ".exe") {
-            # Added explicit working directory to ensure EXE finds its resources
-            Start-Process -FilePath $tempPath -WorkingDirectory $env:TEMP -Verb RunAs -Wait
+            # HWiNFO can be slow to initialize; -Wait is crucial here
+            Start-Process -FilePath $tempPath -Verb RunAs -Wait
         }
         else {
             Start-Process cmd.exe -ArgumentList "/c `"$tempPath`"" -Verb RunAs -Wait
         }
         
-        Write-Host "[*] Cleaning up temporary files..." -ForegroundColor Gray -NoNewline
+        Write-Host "[*] Cleaning up temporary files..." -ForegroundColor Gray
         Remove-Item -Path $tempPath -Force
-        Write-Host " [CLEAN]" -ForegroundColor Green
     }
 }
 
