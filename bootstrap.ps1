@@ -48,11 +48,12 @@ function DownloadAndRun {
     Write-Host "[*] Downloading..." -ForegroundColor Magenta -NoNewline
     
     try { 
-        $webClient = New-Object System.Net.WebClient
-        $webClient.DownloadFile($url, $tempPath)
+        # Using Invoke-WebRequest instead of WebClient for better redirect handling
+        Invoke-WebRequest -Uri $url -OutFile $tempPath -ErrorAction Stop
         Write-Host " [DONE]" -ForegroundColor Green
     } catch {
         Write-Host " [FAILED]" -ForegroundColor Red
+        Write-Error $_.Exception.Message
         return
     }
 
@@ -60,15 +61,14 @@ function DownloadAndRun {
         Write-Host "[*] Launching Application..." -ForegroundColor Cyan
         Write-Host ">>> KEEP THIS WINDOW OPEN UNTIL FINISHED <<<" -ForegroundColor Black -BackgroundColor Yellow
         
-        # Adding a tiny delay so the user can read the yellow warning
         Start-Sleep -Milliseconds 500
 
         if ($ext -eq ".ps1") {
-            # Added -NoExit to PowerShell for stability
             Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -NoExit -File `"$tempPath`"" -Verb RunAs -Wait
         } 
         elseif ($ext -eq ".exe") {
-            Start-Process -FilePath $tempPath -Verb RunAs -Wait
+            # Added explicit working directory to ensure EXE finds its resources
+            Start-Process -FilePath $tempPath -WorkingDirectory $env:TEMP -Verb RunAs -Wait
         }
         else {
             Start-Process cmd.exe -ArgumentList "/c `"$tempPath`"" -Verb RunAs -Wait
