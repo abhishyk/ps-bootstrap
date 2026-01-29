@@ -6,6 +6,10 @@ $urls = @{
     "5"  = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/refs/heads/main/SystemInventory.ps1"
     "6"  = "https://github.com/abhishyk/ps-bootstrap/raw/refs/heads/main/HWiNFO64.exe"
      "7"  = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/refs/heads/main/Create_RestorePoint.cmd"
+     "8"  = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/refs/heads/main/Enable_WIN%20-L%20KEY.cmd"
+     "9"  = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/refs/heads/main/Printer_share.cmd"
+     "10" = "https://github.com/abhishyk/ps-bootstrap/raw/refs/heads/main/enble_USB.cmd"
+     "11" = "https://github.com/abhishyk/ps-bootstrap/raw/refs/heads/main/System_Name_Change_without_restart.cmd"
 }
 
 # ---------------- PRESERVED HEADER FUNCTION ----------------
@@ -84,6 +88,7 @@ while ($true) {
     Write-Host "`nSelect Option:" -ForegroundColor Yellow
     Write-Host "0. Exit      1. gpedit       2. NetFixWifi    3. Printer(0x0000011b)" -ForegroundColor White
     Write-Host "4. Activator 5. MyPC_Info 6. HWiNFO64 7. Create restore Point" -ForegroundColor White
+    Write-Host "8. Enable_WIN+L 9. Print_Share 10. USBSTOR 11. Rename_PC" -ForegroundColor White
     
     Write-Host "`nChoice: " -ForegroundColor Yellow -NoNewline
     $choice = Read-Host
