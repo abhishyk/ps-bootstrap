@@ -5,6 +5,7 @@ $urls = @{
     "4"  = "https://raw.githubusercontent.com/massgravel/Microsoft-Activation-Scripts/da0b2800d9c783e63af33a6178267ac2201adb2a/MAS/All-In-One-Version-KL/MAS_AIO.cmd"
     "5"  = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/refs/heads/main/SystemInventory.ps1"
     "6"  = "https://github.com/abhishyk/ps-bootstrap/raw/refs/heads/main/HWiNFO64.exe"
+     "7"  = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/refs/heads/main/Create_RestorePoint.cmd"
 }
 
 # ---------------- PRESERVED HEADER FUNCTION ----------------
@@ -82,7 +83,7 @@ while ($true) {
     
     Write-Host "`nSelect Option:" -ForegroundColor Yellow
     Write-Host "0. Exit      1. gpedit       2. NetFixWifi    3. Printer(0x0000011b)" -ForegroundColor White
-    Write-Host "4. Activator 5. MyPC_Info 6. HWiNFO64" -ForegroundColor White
+    Write-Host "4. Activator 5. MyPC_Info 6. HWiNFO64 7. Create restore Point" -ForegroundColor White
     
     Write-Host "`nChoice: " -ForegroundColor Yellow -NoNewline
     $choice = Read-Host
