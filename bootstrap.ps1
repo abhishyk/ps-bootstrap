@@ -81,8 +81,8 @@ while ($true) {
     Show-Header # Refreshes screen and ART at the start of every loop
     
     Write-Host "`nSelect Option:" -ForegroundColor Yellow
-    Write-Host "0. Exit      1. CMD       2. Runner    3. Printer" -ForegroundColor White
-    Write-Host "4. Activator 5. Inventory 6. HWiNFO64" -ForegroundColor White
+    Write-Host "0. Exit      1. gpedit       2. Runner    3. Printer(0x0000011b)" -ForegroundColor White
+    Write-Host "4. Activator 5. MyPC_Info 6. HWiNFO64" -ForegroundColor White
     
     Write-Host "`nChoice: " -ForegroundColor Yellow -NoNewline
     $choice = Read-Host
@@ -90,7 +90,7 @@ while ($true) {
     if ($choice -eq "0") { exit }
     
     if ($choice -eq "1") { 
-        Start-Process cmd.exe -Verb RunAs 
+       Start-Process "gpedit.msc" -Verb RunAs
     }
     elseif ($urls.ContainsKey($choice)) { 
         # Download and Run happens below the header
