@@ -18,3 +18,4 @@ if %errorlevel% equ 0 (
     echo Failed to set registry value.
 )
 pause
+
