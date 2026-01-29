@@ -45,7 +45,7 @@ function DownloadAndRun {
     $tempPath = "$env:TEMP\App_$guid$ext"
 
     Write-Host "`n[*] Starting Task: $label" -ForegroundColor Yellow
-    Write-Host "[*] Downloading... (Please wait, this may take a moment)" -ForegroundColor Magenta
+    Write-Host "[*] Loading... (Please wait, this may take a moment)" -ForegroundColor Magenta
     
     try { 
         # Silencing progress for this specific command to boost speed
