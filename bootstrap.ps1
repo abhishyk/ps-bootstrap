@@ -81,7 +81,7 @@ while ($true) {
     Show-Header # Refreshes screen and ART at the start of every loop
     
     Write-Host "`nSelect Option:" -ForegroundColor Yellow
-    Write-Host "0. Exit      1. gpedit       2. Runner    3. Printer(0x0000011b)" -ForegroundColor White
+    Write-Host "0. Exit      1. gpedit       2. NetFixWifi    3. Printer(0x0000011b)" -ForegroundColor White
     Write-Host "4. Activator 5. MyPC_Info 6. HWiNFO64" -ForegroundColor White
     
     Write-Host "`nChoice: " -ForegroundColor Yellow -NoNewline
