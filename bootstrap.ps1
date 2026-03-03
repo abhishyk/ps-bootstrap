@@ -10,6 +10,7 @@ $urls = @{
      "9"  = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/refs/heads/main/Printer_share.cmd"
      "10" = "https://github.com/abhishyk/ps-bootstrap/raw/refs/heads/main/enble_USB.cmd"
      "11" = "https://github.com/abhishyk/ps-bootstrap/raw/refs/heads/main/System_Name_Change_without_restart.cmd"
+     "12" = "https://raw.githubusercontent.com/abhishyk/ps-bootstrap/refs/heads/main/winperformance.cmd"
 }
 
 # ---------------- PRESERVED HEADER FUNCTION ----------------
@@ -89,6 +90,7 @@ while ($true) {
     Write-Host "0. Exit      1. gpedit       2. NetFixWifi    3. Printer(0x0000011b)" -ForegroundColor White
     Write-Host "4. Activator 5. MyPC_Info 6. HWiNFO64 7. Create restore Point" -ForegroundColor White
     Write-Host "8. Enable_WIN+L 9. Print_Share 10. USBSTOR 11. Rename_PC" -ForegroundColor White
+    Write-Host "12. PC Performance Check" -ForegroundColor White
     
     Write-Host "`nChoice: " -ForegroundColor Yellow -NoNewline
     $choice = Read-Host
